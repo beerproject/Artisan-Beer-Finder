@@ -4,7 +4,7 @@ const router = express.Router();
 const Beer = require('../models/Beer');
 
 router.get('/new', (req, res, next) => {
-  res.render('newBeer', { title: 'New Beer' });
+  res.render('beer/newBeer', { title: 'New Beer' });
 });
 
 router.post('/new', (req, res, next) => {
@@ -16,7 +16,7 @@ router.post('/new', (req, res, next) => {
   const description = req.body.description;
 
   if (name === "" || style === "" || description === "") {
-    res.render("newBeer", { message: "Fill the form to add a beer" });
+    res.render("beer/newBeer", { message: "Fill the form to add a beer" });
     return;
   }
 
@@ -34,13 +34,23 @@ router.post('/new', (req, res, next) => {
 
   newBeer.save((err, obj) => {
     if (err) {
-      res.render("newBeer", { message: "Something went wrong" });
+      res.render("beer/newBeer", { message: "Something went wrong" });
       console.log(err);
     } else {
       res.redirect("/");
     }
   });
+});
 
+router.get('/:id', (req, res, next) => {
+  Beer.findById(req.params.id, (err, beer) => {
+    if (err) {
+      return next(err);
+    }
+    res.render('beer/beer', {
+      beer: beer
+    });
+  });
 });
 
 module.exports = router;
