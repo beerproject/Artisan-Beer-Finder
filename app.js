@@ -38,14 +38,8 @@ mongoose.connect('mongodb://localhost:27017/artisan-beer-finder');
 const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 app.set('layout', 'layouts/main-layout');
 app.use(expressLayouts);
-
-
-
-
-
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
