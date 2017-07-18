@@ -1,2 +1,53 @@
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+
+
+<h1>ArtisianBeerFinder</h1>
+<div class="container-login">
+  <h3>Login</h3>
+  <%= message %>
+  <div class="row">
+    <div class="col-sm-6 centered-form">
+      <form action="/login" method="post">
+        <div class="form-group">
+          <label for="username">Email</label>
+          <input type="text" name="username" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control">
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <div class="container-signup">
+    <h3>Sign up</h3>
+    <div class="row">
+
+        <div class="col-sm-6 centered-form">
+          <form action="/signup" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="username">Email</label>
+              <input type="text" name="username" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" name="name" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="photo">Photo</label>
+              <input type="file" name="photo" class="form-control">
+            </div>
+
+
+            <button type="submit">Signup</button>
+          </form>
+        </div>
+    </div>
+  </div>
