@@ -1,4 +1,6 @@
-.gitignore
+.jshintrc
+.DS_Store
+
 # Logs
 logs
 *.log

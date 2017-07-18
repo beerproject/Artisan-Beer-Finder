@@ -1,0 +1,78 @@
+<form action="/beer/new" method="POST">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" name="name" placeholder="Anchor Steam Beer">
+  </div>
+  <div>
+    <label for="style">Style</label>
+    <select name="style">
+      <option value="Altbier">Altbier</option>
+      <option value="Amber Ale">Amber Ale</option>
+      <option value="Barley Wine">Barley Wine</option>
+      <option value="Berliner Weiße">Berliner Weiße</option>
+      <option value="Bière de Garde">Bière de Garde</option>
+      <option value="Bitter">Bitter</option>
+      <option value="Blonde Ale">Blonde Ale</option>
+      <option value="Bock">Bock</option>
+      <option value="Brown Ale">Brown Ale</option>
+      <option value="Cream Ale">Cream Ale</option>
+      <option value="Dortmunder Export">Dortmunder Export</option>
+      <option value="Doppelbock">Doppelbock</option>
+      <option value="Dunkel">Dunkel</option>
+      <option value="Dunkelweizen">Dunkelweizen</option>
+      <option value="Eisbock">Eisbock</option>
+      <option value="Flanders Red Ale">Flanders Red Ale</option>
+      <option value="Geuze">Geuze</option>
+      <option value="Golden Ale">Golden Ale</option>
+      <option value="Gose">Gose</option>
+      <option value="Hefeweizen">Hefeweizen</option>
+      <option value="Helles">Helles</option>
+      <option value="India Pale Ale">India Pale Ale</option>
+      <option value="Kölsch">Kölsch</option>
+      <option value="Lambic">Lambic</option>
+      <option value="Light Ale">Light Ale</option>
+      <option value="Maibock">Maibock</option>
+      <option value="Malt Liquor">Malt Liquor</option>
+      <option value="Märzenbier">Märzenbier</option>
+      <option value="Mild Ale">Mild Ale</option>
+      <option value="Old Ale">Old Ale</option>
+      <option value="Oud Bruin">Oud Bruin</option>
+      <option value="Pale Ale">Pale Ale</option>
+      <option value="Pilsner">Pilsner</option>
+      <option value="Porter">Porter</option>
+      <option value="Red Ale">Red Ale</option>
+      <option value="Roggenbier">Roggenbier</option>
+      <option value="Saison">Saison</option>
+      <option value="Scotch Ale">Scotch Ale</option>
+      <option value="Steam Beer" selected>Steam Beer</option>
+      <option value="Stout">Stout</option>
+      <option value="Schwarzbier">Schwarzbier</option>
+      <option value="Vienna Lager">Vienna Lager</option>
+      <option value="Witbier">Witbier</option>
+      <option value="Weißbier">Weißbier</option>
+      <option value="Weizenbock">Weizenbock</option>
+    </select>
+  </div>
+  <div>
+    <label for="standardReferenceMethod">SRU</label>
+    <input type="number" name="standardReferenceMethod" min="1" max="40" step="1" value="9">
+  </div>
+  <div>
+    <label for="alcoholByVolume">ABV</label>
+    <input type="number" name="alcoholByVolume" min="0" max="100BBBBB" step="0.1" value="4.8">
+  </div>
+  <div>
+    <label for="internationalBitteringUnits">IBU</label>
+    <input type="number" name="internationalBitteringUnits" min="0" step="1" value="35">
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <input type="text" name="description" maxlength="180" placeholder="San Francisco's famous Anchor Steam®, the classic of American brewing tradition since 1896, is virtually handmade, with an exceptional respect for the ancient art of brewing."></textarea>
+  </div>
+  <div>
+    <input type="submit" value="Add new beer">
+  </div>
+  <% if (typeof message != "undefined") { %>
+    <div class="error-message"><%= message %></div>
+  <% } %>
+</form>
