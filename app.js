@@ -109,13 +109,23 @@ passport.use('local-signup', new LocalStrategy({
             username,
             name,
             password,
+            role,
+            web,
+            location,
+            phone,
+            yearFounded
           } = req.body;
           const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
           const newUser = new User({
             username,
             name,
             password: hashPass,
-            pic_name: req.file.filename
+            pic_name: req.file.filename,
+            role,
+            web,
+            location,
+            phone,
+            yearFounded
           });
           newUser.save((err) => {
             if (err) {

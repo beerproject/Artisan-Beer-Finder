@@ -1,4 +1,3 @@
-
 <h1>ArtisianBeerFinder</h1>
 <div class="container-login">
   <h3>Login</h3>
@@ -43,8 +42,28 @@
               <label for="photo">Photo</label>
               <input type="file" name="photo" class="form-control">
             </div>
-
-
+            <div>
+              <label for="role">Beer addict</label>
+              <input type="radio" name="role" value='USER'>
+              <label for="userButton">Brewery</label>
+              <input type="radio" name="role" value='BREWERY'>
+            </div>
+            <div class="form-group">
+              <label for="web">Web</label>
+              <input type="text" name="web" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="location">Location</label>
+              <input type="text" name="location" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="number" name="phone" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="yearFounded">Year founded</label>
+              <input type="number" max='2100' name="yearFounded" class="form-control">
+            </div>
             <button type="submit">Signup</button>
           </form>
         </div>
