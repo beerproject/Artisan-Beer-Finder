@@ -35,9 +35,8 @@ router.post('/new', (req, res, next) => {
   newBeer.save((err, obj) => {
     if (err) {
       res.render("beer/newBeer", { message: "Something went wrong" });
-      console.log(err);
     } else {
-      res.redirect("/");
+      res.redirect(`/beer/${newBeer._id}`);
     }
   });
 });
@@ -50,6 +49,44 @@ router.get('/:id', (req, res, next) => {
     res.render('beer/beer', {
       beer: beer
     });
+  });
+});
+
+router.get('/:id/edit', (req, res, next) => {
+  Beer.findById(req.params.id, (err, beer) => {
+    if (err) {
+      return next(err);
+    }
+    res.render('beer/editBeer', {
+      beer: beer
+    });
+  });
+});
+
+router.post('/:id/edit', (req, res, next) => {
+  const beerId = req.params.id;
+
+  const updates = {
+      name: req.body.name,
+      style: req.body.style,
+      standardReferenceMethod: req.body.standardReferenceMethod,
+      alcoholByVolume: req.body.alcoholByVolume,
+      internationalBitteringUnits: req.body.internationalBitteringUnits,
+      description: req.body.description
+  };
+
+  Beer.findByIdAndUpdate(beerId, updates, (err, product) => {
+    if (err){ return next(err); }
+    res.redirect(`/beer/${beerId}`);
+  });
+});
+
+router.post('/:id/delete', (req, res, next) => {
+  Beer.findByIdAndRemove(req.params.id, (err, beer) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/');
   });
 });
 

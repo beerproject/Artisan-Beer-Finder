@@ -1,7 +1,14 @@
 <h2><%= beer.name %></h2>
-<h3><%= beer.style %></h3>
-<p><%= beer.standardReferenceMethod %></p>
-<p><%= beer.alcoholByVolume %></p>
-<p><%= beer.internationalBitteringUnits %></p>
-<p><%= beer.standardReferenceMethod %></p>
-<!-- brewery, ratings, numberOfRatings --> 
+<h4><%= beer.style %></h4>
+<p>SRU: <%= beer.standardReferenceMethod %></p>
+<p>ABV: <%= beer.alcoholByVolume %></p>
+<p>IBU: <%= beer.internationalBitteringUnits %></p>
+<p><%= beer.description %></p>
+<!-- brewery, ratings, numberOfRatings -->
+<br>
+<form action="/beer/<%= beer._id %>/edit" method="GET">
+  <button type="submit">Edit</button>
+</form>
+<form action="/beer/<%= beer._id %>/delete" method="POST">
+  <button type="submit">Delete</button>
+</form>

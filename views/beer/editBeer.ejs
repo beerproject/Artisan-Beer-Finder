@@ -1,7 +1,7 @@
-<form action="/beer/new" method="POST">
+<form action="/beer/<%= beer._id %>/edit" method="POST">
   <div>
     <label for="name">Name</label>
-    <input type="text" name="name" placeholder="Anchor Steam Beer">
+    <input type="text" name="name" value="<%= beer.name %>">
   </div>
   <div>
     <label for="style">Style</label>
@@ -44,7 +44,7 @@
       <option value="Roggenbier">Roggenbier</option>
       <option value="Saison">Saison</option>
       <option value="Scotch Ale">Scotch Ale</option>
-      <option value="Steam Beer" selected>Steam Beer</option>
+      <option value="Steam Beer">Steam Beer</option>
       <option value="Stout">Stout</option>
       <option value="Schwarzbier">Schwarzbier</option>
       <option value="Vienna Lager">Vienna Lager</option>
@@ -55,24 +55,27 @@
   </div>
   <div>
     <label for="standardReferenceMethod">SRU</label>
-    <input type="number" name="standardReferenceMethod" min="1" max="40" step="1" value="9">
+    <input type="number" name="standardReferenceMethod" min="1" max="40" step="1" value="<%= beer.standardReferenceMethod %>">
   </div>
   <div>
     <label for="alcoholByVolume">ABV</label>
-    <input type="number" name="alcoholByVolume" min="0" max="100BBBBB" step="0.1" value="4.8">
+    <input type="number" name="alcoholByVolume" min="0" max="100BBBBB" step="0.1" value="<%= beer.alcoholByVolume %>">
   </div>
   <div>
     <label for="internationalBitteringUnits">IBU</label>
-    <input type="number" name="internationalBitteringUnits" min="0" step="1" value="35">
+    <input type="number" name="internationalBitteringUnits" min="0" step="1" value="<%= beer.internationalBitteringUnits %>">
   </div>
   <div>
     <label for="description">Description</label>
-    <input type="text" name="description" maxlength="180" placeholder="San Francisco's famous Anchor Steam®, the classic of American brewing tradition since 1896, is virtually handmade, with an exceptional respect for the ancient art of brewing."></textarea>
+    <input type="text" name="description" maxlength="180" value="<%= beer.description %>"></input>
   </div>
   <div>
-    <input type="submit" value="Add new beer">
+    <input type="submit" value="Save">
   </div>
   <% if (typeof message != "undefined") { %>
     <div class="error-message"><%= message %></div>
   <% } %>
+</form>
+<form action="/beer/<%= beer._id %>/" method="GET">
+  <button type="submit">Back</button>
 </form>
