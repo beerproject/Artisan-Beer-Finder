@@ -1,5 +1,6 @@
 .jshintrc
 .DS_Store
+public/uploads/
 
 # Logs
 logs
