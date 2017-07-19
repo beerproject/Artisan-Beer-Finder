@@ -1,15 +1,12 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Helvetica", "Arial", sans-serif;
+  background: hsl(30, 75%, 98%);
+}
+
+nav a {
+  color: hsl(30, 100%, 50%);
 }
 
 a {
   color: #00B7FF;
-}
-.container-signup{
-  display: block;
-}
-.container-login{
-  display: block;
-  margin-top: 30px;
 }

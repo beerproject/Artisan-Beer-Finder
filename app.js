@@ -16,9 +16,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
-
 const flash = require('connect-flash');
-
 
 const authRoutes = require('./routes/authentication');
 
@@ -26,12 +24,10 @@ const upload = multer({
   dest: './public/uploads/'
 });
 
-
 const beer = require('./routes/beer');
 
 const User = require('./models/user');
 const Beer = require('./models/Beer');
-
 
 mongoose.connect('mongodb://localhost:27017/artisan-beer-finder');
 
@@ -42,12 +38,8 @@ app.set('view engine', 'ejs');
 app.set('layout', 'layouts/main-layout');
 app.use(expressLayouts);
 
-
-
-
-
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Artisan Beer Finder';
 
 app.use(flash());
 
@@ -122,17 +114,20 @@ passport.use('local-signup', new LocalStrategy({
             yearFounded
           } = req.body;
           const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-          const newUser = new User({
-            username,
-            name,
-            password: hashPass,
-            pic_name: req.file.filename,
-            role,
-            web,
-            location,
-            phone,
-            yearFounded
-          });
+          console.log(role);
+
+            const newUser = new User({
+              username,
+              name,
+              password: hashPass,
+              pic_name: req.file.filename,
+              role,
+              web,
+              location,
+              phone,
+              yearFounded
+            });
+
           newUser.save((err) => {
             if (err) {
               next(null, false, {
@@ -157,6 +152,8 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/vendor/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
+app.use('/vendor/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
 app.use('/', authRoutes);
 app.use('/beer', beer);
 // catch 404 and forward to error handler
