@@ -3,12 +3,25 @@ body {
   background: hsl(30, 90%, 98%);
 }
 
-nav a {
+#navbar {
+  background: white;
+  font-weight: 100;
+}
+
+#navbar a {
   color: hsl(30, 100%, 50%);
 }
 
-a {
-  color: #00B7FF;
+.login-signup {
+  color: hsl(30, 100%, 50%);
+}
+
+.login-signup-button {
+  margin-bottom: 30px;
+}
+
+.login-error {
+  color: hsl(0, 100%, 50%);
 }
 
 #map {
