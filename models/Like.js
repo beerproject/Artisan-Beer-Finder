@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
-const votingSchema = new Schema({
+const likeSchema = new Schema({
   user_id: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   beer_id: { type: Schema.Types.ObjectId, ref: 'Beer', required: true }
 }, {
@@ -11,6 +11,6 @@ const votingSchema = new Schema({
   }
 });
 
-const Like = mongoose.model('Like', votingSchema);
+const Like = mongoose.model('Like', likeSchema);
 
 module.exports = Like;

@@ -72,7 +72,7 @@ const beerSchema = new Schema({
     type: String,
     required: true
   },
-  votes: {
+  likes: {
     type: Number,
   }
   //brewery

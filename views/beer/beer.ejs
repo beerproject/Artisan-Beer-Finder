@@ -12,10 +12,12 @@
 <form action="/beer/<%= beer._id %>/delete" method="POST">
   <button type="submit">Delete</button>
 </form>
-<p><span class="total"><%= beer.votes %></span> likes</p>
-<form action="/like" method="POST">
-  <button type="submit" name="vote" id="vote">Like</button>
-</form>
+<p><span class=total-likes><%= beer.likes %></span> likes</p>
+
+<button type="submit" <% if(voted){ %> disabled <% } %> name="like" id="like">Like</button>
+<% if (typeof message != "undefined") { %>
+  <div class="error-message"><%= message %></div>
+<% } %>
 <script type="text/javascript">
   var beerInfo = <%- JSON.stringify({
     currentBeer: beer,

@@ -1,11 +1,16 @@
 $(document).ready(function() {
-  $('#vote').on('click', (e) => {
+  $('#like').on('click', (e) => {
+    e.preventDefault();
     $.post('/like', {
-      userId: currentUser._id,
-      beerId: currentBeer._id
+      userId: beerInfo.currentUser._id,
+      beerId: beerInfo.currentBeer._id,
+      likes: beerInfo.currentBeer.likes
     })
-    .then( response =>{
-      console.log(response);
+    .then( response => {
+      beerInfo.currentBeer.likes++;
+      $('.total-likes').text(beerInfo.currentBeer.likes);
+      $('#like').text('Liked');
+      $('#like').off('click');
     })
     .catch( err => {
       console.log(err);
