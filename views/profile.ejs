@@ -1,3 +1,37 @@
-<h1>Zona secreta jj</h1>
+<form >
+<input type="text" value="Buscar..." onfocus="if (this.value == 'Buscar...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Buscar...';}" />
+<input type="submit" value="Buscar Usuario" />
+</form>
 
+
+<h2><%= user.role %></h2>
+<h4><%= user.name %></h4>
+<p>Web: <a href="<%= user.web %>">Pagina de <%= user.name %> </a> </p>
+
+<p><img src="/uploads/<%= user.pic_name %>" width=200/></p>
+<p>Location: <%= user.location %></p>
+<p>Phone: <%= user.phone %></p>
+<p>Year Founded: <%= user.yearFounded %></p>
+<!-- brewery, ratings, numberOfRatings -->
+<br>
+<% if(user.role== "BREWERY") {%>
+<a href="/beer/new">Crear Cerveza</a>
+<% }%>
 <a href="/logout">Logout</a>
+
+<a href="/main">Main</a>
+
+
+<% beer.forEach(beer => {%>
+      <div >
+        <h3><%= beer.name %></h3>
+      </div>
+      <img src="/uploads/<%= beer.pic_name %>" width=100/>
+      <p>SRU: <%= beer.standardReferenceMethod %></p>
+      <p>ABV: <%= beer.alcoholByVolume %></p>
+      <p>IBU: <%= beer.internationalBitteringUnits %></p>
+      <p><%= beer.description %></p>
+      <% if(userS._id== beer.breweryId) {%>
+      <a href="beer/<%= beer._id %>">Editar/borrar</a>
+      <% }%>
+    <% }) %>

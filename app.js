@@ -18,9 +18,9 @@ const MongoStore = require('connect-mongo')(session);
 
 
 const flash = require('connect-flash');
-
-
 const authRoutes = require('./routes/authentication');
+const profile = require('./routes/profile');
+const mainR = require('./routes/main');
 
 const upload = multer({
   dest: './public/uploads/'
@@ -28,7 +28,6 @@ const upload = multer({
 
 
 const beer = require('./routes/beer');
-
 const User = require('./models/user');
 const Beer = require('./models/Beer');
 
@@ -116,6 +115,7 @@ passport.use('local-signup', new LocalStrategy({
             yearFounded
           } = req.body;
           const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+
           const newUser = new User({
             username,
             name,
@@ -152,7 +152,10 @@ app.use(cookieParser());
 app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', authRoutes);
+app.use('/', mainR);
 app.use('/beer', beer);
+app.use('/', profile);
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found');

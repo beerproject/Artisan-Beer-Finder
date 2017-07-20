@@ -1,4 +1,4 @@
-<form action="/beer/new" method="POST">
+<form action="/beer/new" method="POST" enctype="multipart/form-data">
   <div>
     <label for="name">Name</label>
     <input type="text" name="name" placeholder="Anchor Steam Beer">
@@ -68,6 +68,10 @@
   <div>
     <label for="description">Description</label>
     <input type="text" name="description" maxlength="180" placeholder="San Francisco's famous Anchor Steam®, the classic of American brewing tradition since 1896, is virtually handmade, with an exceptional respect for the ancient art of brewing."></textarea>
+  </div>
+  <div class="form-group">
+    <label for="photo">Photo</label>
+    <input type="file" name="photo" class="form-control">
   </div>
   <div>
     <input type="submit" value="Add new beer">

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Schema   = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const beerSchema = new Schema({
   name: String,
@@ -76,9 +76,10 @@ const beerSchema = new Schema({
     type: Number,
     min: 1,
     max: 5,
-  }
-  //brewery
-  //beerphoto
+  },
+  pic_name: String,
+  breweryId: String,
+  breweryName: String
 }, {
   timestamps: {
     createdAt: 'created_at',

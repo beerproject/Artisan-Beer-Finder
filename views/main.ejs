@@ -1,0 +1,27 @@
+<a href="/profile">Profile</a>
+<h4><%=  %></h4>
+
+<% beer.forEach(beer => {%>
+
+  <div>
+    <h3><%= beer.name %></h3>
+  </div>
+  <img src="/uploads/<%= beer.pic_name %>" width=100/>
+  <p>SRU:
+    <%= beer.standardReferenceMethod %>
+  </p>
+  <p>ABV:
+    <%= beer.alcoholByVolume %>
+  </p>
+  <p>IBU:
+    <%= beer.internationalBitteringUnits %>
+  </p>
+  <p>
+    <%= beer.description %>
+  </p>
+  <% if(user._id== beer.breweryId) {%>
+  <a href="beer/<%= beer._id %>">Editar/borrar</a>
+  <% }%>
+  <a href="profile/<%= beer.breweryId %>">Ir al perfil</a>
+
+  <% }) %>

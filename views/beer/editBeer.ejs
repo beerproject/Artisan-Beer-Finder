@@ -1,4 +1,4 @@
-<form action="/beer/<%= beer._id %>/edit" method="POST">
+<form action="/beer/<%= beer._id %>/edit" method="POST" enctype="multipart/form-data">
   <div>
     <label for="name">Name</label>
     <input type="text" name="name" value="<%= beer.name %>">
@@ -68,6 +68,10 @@
   <div>
     <label for="description">Description</label>
     <input type="text" name="description" maxlength="180" value="<%= beer.description %>"></input>
+  </div>
+  <div class="form-group">
+    <label for="photo">Photo</label>
+    <input type="file" name="photo" class="form-control">
   </div>
   <div>
     <input type="submit" value="Save">

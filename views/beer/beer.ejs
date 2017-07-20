@@ -1,9 +1,20 @@
+<h1><%= beer.breweryName %></h1>
 <h2><%= beer.name %></h2>
+
+<p><img src="/uploads/<%= beer.pic_name %>" width=200/></p>
 <h4><%= beer.style %></h4>
-<p>SRU: <%= beer.standardReferenceMethod %></p>
-<p>ABV: <%= beer.alcoholByVolume %></p>
-<p>IBU: <%= beer.internationalBitteringUnits %></p>
-<p><%= beer.description %></p>
+<p>SRU:
+  <%= beer.standardReferenceMethod %>
+</p>
+<p>ABV:
+  <%= beer.alcoholByVolume %>
+</p>
+<p>IBU:
+  <%= beer.internationalBitteringUnits %>
+</p>
+<p>
+  <%= beer.description %>
+</p>
 <!-- brewery, ratings, numberOfRatings -->
 <br>
 <form action="/beer/<%= beer._id %>/edit" method="GET">
@@ -12,3 +23,10 @@
 <form action="/beer/<%= beer._id %>/delete" method="POST">
   <button type="submit">Delete</button>
 </form>
+
+
+<h3>My First Map</h3>
+<div id="map"></div>
+<script type="text/javascript" src="/javascripts/maps.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSminHmAfFxPbPCFNU_7369BwNqBPdml0"
+></script>
