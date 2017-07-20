@@ -72,10 +72,8 @@ const beerSchema = new Schema({
     type: String,
     required: true
   },
-  rating: {
-    type: Number,
-    min: 1,
-    max: 5,
+  likes: {
+    type: Number
   },
   pic_name: String,
   breweryId: String,

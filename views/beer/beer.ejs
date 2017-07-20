@@ -1,21 +1,11 @@
-<h1><%= beer.breweryName %></h1>
 <h2><%= beer.name %></h2>
-
 <p><img src="/uploads/<%= beer.pic_name %>" width=200/></p>
 <h4><%= beer.style %></h4>
-<p>SRU:
-  <%= beer.standardReferenceMethod %>
-</p>
-<p>ABV:
-  <%= beer.alcoholByVolume %>
-</p>
-<p>IBU:
-  <%= beer.internationalBitteringUnits %>
-</p>
-<p>
-  <%= beer.description %>
-</p>
-<!-- brewery, ratings, numberOfRatings -->
+<h1><%= beer.breweryName %></h1>
+<p>SRU: <%= beer.standardReferenceMethod %></p>
+<p>ABV: <%= beer.alcoholByVolume %></p>
+<p>IBU: <%= beer.internationalBitteringUnits %></p>
+<p><%= beer.description %></p>
 <br>
 <form action="/beer/<%= beer._id %>/edit" method="GET">
   <button type="submit">Edit</button>
@@ -24,6 +14,18 @@
   <button type="submit">Delete</button>
 </form>
 
+<p><span class=total-likes><%= beer.likes %></span> likes</p>
+<button type="submit" <% if(voted){ %> disabled <% } %> name="like" id="like">Like</button>
+<% if (typeof message != "undefined") { %>
+  <div class="error-message"><%= message %></div>
+<% } %>
+
+<script type="text/javascript">
+  var beerInfo = <%- JSON.stringify({
+    currentBeer: beer,
+    currentUser: user
+    }) %>;
+</script>
 
 <h3>My First Map</h3>
 <div id="map"></div>

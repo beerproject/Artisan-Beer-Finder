@@ -45,10 +45,10 @@ router.post('/new',upload.single('photo'), (req, res, next) => {
     alcoholByVolume: alcoholByVolume,
     internationalBitteringUnits: internationalBitteringUnits,
     description: description,
-    rating: null,
     pic_name: req.file.filename,
     breweryId: req.user._id,
-    breweryName:req.user.name
+    breweryName:req.user.name,
+    likes: 0
   });
 
   newBeer.save((err, obj) => {
