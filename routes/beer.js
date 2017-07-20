@@ -29,7 +29,7 @@ router.post('/new', (req, res, next) => {
     alcoholByVolume: alcoholByVolume,
     internationalBitteringUnits: internationalBitteringUnits,
     description: description,
-    rating: null
+    votes: 0
   });
 
   newBeer.save((err, obj) => {
