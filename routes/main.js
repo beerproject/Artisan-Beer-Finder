@@ -20,7 +20,7 @@ router.get('/main', ensureLoggedIn('/'), (req, res) => {
   Beer.find({}, (err, beer) => {
 
     if (err) return handleError(err);
-    console.log(beer);
+    
     res.render('main', {
       user: req.user,
       beer
