@@ -1,27 +1,49 @@
 <a href="/profile">Profile</a>
-<h4><%=  %></h4>
 
+
+<% beer.sort((a, b)=> {%>
+<%  return  b.likes - a.likes ; %>
+<% }); %>
 <% beer.forEach(beer => {%>
-
   <div>
     <h3><%= beer.name %></h3>
   </div>
-  <img src="/uploads/<%= beer.pic_name %>" width=100/>
-  <p>SRU:
+  <img src="/uploads/<%= beer.pic_name %>" width=100/><br>
+
+
+    <% if(beer.standardReferenceMethod>0 && beer.standardReferenceMethod<10) {%>
+  <p style="background-color:#FFFF00;"> SRU:
+    <% }%>
+    <% if(beer.standardReferenceMethod>10 && beer.standardReferenceMethod<25) {%>
+  <p style="background-color:#DBA901;"> SRU:
+    <% }%>
+    <% if(beer.standardReferenceMethod>25 && beer.standardReferenceMethod<30) {%>
+  <p style="background-color:#61380B; color:white;"> SRU:
+    <% }%>
+    <% if(beer.standardReferenceMethod>30) {%>
+  <p style="background-color:#191007; color:white;"> SRU:
+    <% }%>
     <%= beer.standardReferenceMethod %>
+
+    
   </p>
+
   <p>ABV:
     <%= beer.alcoholByVolume %>
   </p>
   <p>IBU:
     <%= beer.internationalBitteringUnits %>
   </p>
-  <p>
+  <p>Description:
     <%= beer.description %>
+  </p>
+  <p>Likes:
+    <%= beer.likes %>
   </p>
   <% if(user._id== beer.breweryId) {%>
   <a href="beer/<%= beer._id %>">Editar/borrar</a>
   <% }%>
-  <a href="profile/<%= beer.breweryId %>">Ir al perfil</a>
+  <a href="beer/<%= beer._id %>">Perfil de la cerveza</a>
+  <a href="profile/<%= beer.breweryId %>">Perfil de la empresa</a>
 
   <% }) %>

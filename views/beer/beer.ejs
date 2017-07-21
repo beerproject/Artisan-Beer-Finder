@@ -13,12 +13,16 @@
 <form action="/beer/<%= beer._id %>/delete" method="POST">
   <button type="submit">Delete</button>
 </form>
-
+<% user.role %>
+<% if (user.role== "USER") { %>
 <p><span class=total-likes><%= beer.likes %></span> likes</p>
-<button type="submit" <% if(voted){ %> disabled <% } %> name="like" id="like">Like</button>
+
+<button type="submit" name="like" id="like">Like</button>
 <% if (typeof message != "undefined") { %>
   <div class="error-message"><%= message %></div>
 <% } %>
+<% } %>
+
 
 <script type="text/javascript">
   var beerInfo = <%- JSON.stringify({
@@ -27,8 +31,16 @@
     }) %>;
 </script>
 
-<h3>My First Map</h3>
+
+
+<h3>Location</h3>
 <div id="map"></div>
-<script type="text/javascript" src="/javascripts/maps.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSminHmAfFxPbPCFNU_7369BwNqBPdml0"
+<script type="text/javascript">
+var myBeer= <%- JSON.stringify(user)  %>;
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrtmNUIUV5jizOKyGvM3a6tlpRPvAac-Y&libraries=places"></script>
+
+
+<script type="text/javascript" src="/scripts/maps.js"></script>
+
 ></script>

@@ -34,9 +34,7 @@ router.get('/profile', ensureLoggedIn('/'), (req, res) => {
   });
 });
 
-
-
-router.get('/profile/:id', (req, res, next) => {
+router.get('/profile/:id', ensureLoggedIn('/'), (req, res, next) => {
   User.findById(req.params.id, (err, user) => {
 
     if (err) {

@@ -68,7 +68,8 @@ router.get('/:id',ensureLoggedIn('/'), (req, res, next) => {
       return next(err);
     }
     res.render('beer/beer', {
-      beer: beer
+      beer: beer,
+      user:req.user
     });
   });
 });
