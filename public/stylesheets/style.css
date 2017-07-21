@@ -31,6 +31,10 @@ body {
 #map {
   height: 500px;
   width: 100%;
+  border: 10px;
+  border-style: outset;
+  border-radius: 10px;
+  border-color: orange;
 }
 
 #profile-pic {

@@ -7,9 +7,8 @@ const passport = require('passport');
 //
 // const upload = multer({ dest: './public/uploads/' });
 const User = require('../models/user');
-
-
 const Beer = require('../models/Beer');
+const Likes = require('../models/Like');
 
 
 const {
@@ -23,15 +22,29 @@ router.get('/profile', ensureLoggedIn('/'), (req, res) => {
     'breweryId': `${req.user._id}`
   }, (err, beer) => {
 
-    if (err) return handleError(err);
+  if (err) return handleError(err);
+  Beer.find({
+  }, (err, beerS) => {
 
+  if (err) return handleError(err);
+    Likes.find({
+      'user_id': `${req.user._id}`
+    }, (err, like) => {
 
-    res.render('profile', {
-      user:req.user,
-      userS: req.user,
-      beer
+      if (err) return handleError(err);
+      console.log(like);
+
+      res.render('profile', {
+        user: req.user,
+        userS: req.user,
+        beer,
+        beerS,
+        like
+      });
     });
-  });
+    });
+    });
+
 });
 
 router.get('/profile/:id', ensureLoggedIn('/'), (req, res, next) => {
@@ -46,10 +59,20 @@ router.get('/profile/:id', ensureLoggedIn('/'), (req, res, next) => {
 
       if (err) return handleError(err);
       console.log(beer);
-      res.render('profile', {
-        userS:req.user,
-        user: user,
-        beer
+
+      Likes.find({
+        'beer_id': `${req.params.id}`
+      }, (err, like) => {
+
+        if (err) return handleError(err);
+        console.log(beer);
+        res.render('profile', {
+          userS: req.user,
+          user: user,
+          beer,
+          like
+        });
+
       });
     });
 
