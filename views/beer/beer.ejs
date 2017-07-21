@@ -1,8 +1,8 @@
-<h2><%= beer.name %></h2>
+<h2 class="imp"><%= beer.name %></h2>
 <p><img src="/uploads/<%= beer.pic_name %>" width=200/></p>
 <h4><%= beer.style %></h4>
 <h1><%= beer.breweryName %></h1>
-<p>SRU: <%= beer.standardReferenceMethod %></p>
+<p>SRM: <%= beer.standardReferenceMethod %></p>
 <p>ABV: <%= beer.alcoholByVolume %></p>
 <p>IBU: <%= beer.internationalBitteringUnits %></p>
 <p><%= beer.description %></p>
@@ -15,7 +15,7 @@
 </form>
 
 <p><span class=total-likes><%= beer.likes %></span> likes</p>
-<button type="submit" <% if(voted){ %> disabled <% } %> name="like" id="like">Like</button>
+<button type="submit" name="like" id="like">Like</button>
 <% if (typeof message != "undefined") { %>
   <div class="error-message"><%= message %></div>
 <% } %>
