@@ -1,37 +1,43 @@
-<form >
-<input type="text" value="Buscar..." onfocus="if (this.value == 'Buscar...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Buscar...';}" />
-<input type="submit" value="Buscar Usuario" />
-</form>
+<div class="row" id="wholeProfile">
+  <div class="col-md-3">
+    <img src="/uploads/<%= user.pic_name %>" alt="profile pic" id="profile-pic" class="img-resposive img-rounded">
+  </div>
+  <div class="col-md-7" id="profileData">
+    <h2 class="imp">
+      <%= user.name %>
+    </h2>
+    <p>
+      <a href="mailto:<%= user.username %>"><%= user.username %></a>
+    </p>
+    <p>
+      <a href="<%= user.web %>"><%= user.web %></a>
+    </p>
+    <p>
+      <%= user.yearFounded %>
+    </p>
+    <p>
+      <%= user.location %>
+    </p>
+    <p>
+      <%= user.phone %>
+    </p>
+  </div>
+  <div class="col-md-2">
+    <% if(user.role== "BREWERY") {%>
+    <a href="/beer/new" class="btn btn-success" id="addBeerButton">Add Beer</a>
+    <% }%>
+  </div>
+</div>
 
-
-<h2><%= user.role %></h2>
-<h4><%= user.name %></h4>
-<p>Web: <a href="<%= user.web %>">Pagina de <%= user.name %> </a> </p>
-
-<p><img src="/uploads/<%= user.pic_name %>" width=200/></p>
-<p>Location: <%= user.location %></p>
-<p>Phone: <%= user.phone %></p>
-<p>Year Founded: <%= user.yearFounded %></p>
-<!-- brewery, ratings, numberOfRatings -->
-<br>
-<% if(user.role== "BREWERY") {%>
-<a href="/beer/new">Crear Cerveza</a>
-<% }%>
-<a href="/logout">Logout</a>
-
-<a href="/main">Main</a>
-
-
+<div class="beerProfileContainer">
 <% beer.forEach(beer => {%>
-      <div >
-        <h3><%= beer.name %></h3>
-      </div>
-      <img src="/uploads/<%= beer.pic_name %>" width=100/>
-      <p>SRU: <%= beer.standardReferenceMethod %></p>
-      <p>ABV: <%= beer.alcoholByVolume %></p>
-      <p>IBU: <%= beer.internationalBitteringUnits %></p>
-      <p><%= beer.description %></p>
-      <% if(userS._id== beer.breweryId) {%>
-      <a href="beer/<%= beer._id %>">Editar/borrar</a>
-      <% }%>
-    <% }) %>
+  <div class="col col-sm-3">
+    <div class="thumbnail profileBeers">
+      <h4><a class="imp" href="beer/<%= beer._id %>"><%= beer.name %></a></h4>
+      <a href="beer/<%= beer._id %>"><img class="beerProfilePic img-rounded" src="/uploads/<%= beer.pic_name %>" width=100/></a>
+      <p><%= beer.style %></p>
+      <p><%= beer.likes %> likes</p>
+    </div>
+  </div>
+<% }) %>
+</div>

@@ -1,6 +1,7 @@
 .jshintrc
 .DS_Store
 public/uploads/
+.env
 
 # Logs
 logs

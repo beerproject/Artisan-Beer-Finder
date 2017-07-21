@@ -33,7 +33,9 @@ const User = require('./models/user');
 const Beer = require('./models/Beer');
 const Like = require('./models/Like');
 
-mongoose.connect('mongodb://localhost:27017/artisan-beer-finder');
+require('dotenv').load();
+const config = require('./config/config');
+mongoose.connect(config.db);
 
 const app = express();
 app.set('views', path.join(__dirname, 'views'));

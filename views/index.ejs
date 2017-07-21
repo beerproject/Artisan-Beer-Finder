@@ -1,70 +1,94 @@
-<div class="container-login">
-  <h3>Login</h3>
-  <%= message %>
-  <div class="row">
-    <div class="col-sm-6 centered-form">
-      <form action="/login" method="post">
-        <div class="form-group">
-          <label for="username">Email</label>
-          <input type="text" name="username" class="form-control">
-        </div>
-
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" name="password" class="form-control">
-        </div>
-        <button type="submit">Login</button>
-      </form>
+<div class="col-md-6 col-md-offset-3">
+  <h3 class="imp">
+    Login
+  </h3>
+  <form action="/login" method="POST">
+    <div class="form-group">
+      <label for="username">
+        Email
+      </label>
+      <input type="text" name="username" class="form-control" placeholder="info@anchorbrewing.com">
     </div>
-  </div>
+    <div class="form-group">
+      <label for="password">
+        Password
+      </label>
+      <input type="password" name="password" class="form-control" placeholder="*********">
+    </div>
+    <button class="btn btn-success login-signup-button" type="submit">
+      Login
+    </button>
+    <p class='login-error'>
+      <%= message %>
+    </p>
+  </form>
 </div>
 
-  <div class="container-signup">
-    <h3>Sign up</h3>
-    <div class="row">
-
-        <div class="col-sm-6 centered-form">
-          <form action="/signup" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-              <label for="username">Email</label>
-              <input type="text" name="username" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" name="name" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" name="password" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="photo">Photo</label>
-              <input type="file" name="photo" class="form-control">
-            </div>
-            <div>
-              <label for="role">Beer addict</label>
-              <input type="radio" name="role" value='USER'>
-              <label for="userButton">Brewery</label>
-              <input type="radio" name="role" value='BREWER'>
-            </div>
-            <div class="form-group">
-              <label for="web">Web</label>
-              <input type="text" name="web" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="location">Location</label>
-              <input type="text" name="location" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="number" name="phone" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="yearFounded">Year founded</label>
-              <input type="number" max='2100' name="yearFounded" class="form-control">
-            </div>
-            <button type="submit">Signup</button>
-          </form>
-        </div>
+<div class="col-md-6 col-md-offset-3">
+  <h3 class="imp">
+    Signup
+  </h3>
+  <form action="/signup" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="name">
+        Name
+      </label>
+      <input type="text" name="name" class="form-control" placeholder="Anchor Brewing Co.">
     </div>
-  </div>
+    <div class="form-group">
+      <label for="username">
+        Email
+      </label>
+      <input type="text" name="username" class="form-control" placeholder="info@anchorbrewing.com">
+    </div>
+    <div class="form-group">
+      <label for="password">
+        Password
+      </label>
+      <input type="password" name="password" class="form-control" placeholder="*********">
+    </div>
+    <div class="form-group">
+      <label for="photo">
+        Profile picture
+      </label>
+      <input type="file" name="photo">
+    </div>
+    <div class="form-group">
+      <label class="radio-inline" for="role">
+        Beer addict
+      </label>
+      <input type="radio" name="role" value="USER">
+      <label class="radio-inline" for="role">
+        Brewery
+      </label>
+      <input type="radio" name="role" value="BREWERY">
+    </div>
+    <div class="form-group">
+      <label for="web">
+        Web
+      </label>
+      <input type="text" name="web" class="form-control" placeholder="https://www.anchorbrewing.com">
+    </div>
+    <div class="form-group">
+      <label for="location">
+        Location
+      </label>
+      <input type="text" name="location" class="form-control" placeholder="1705 Mariposa Street. San Francisco, CA 94107">
+    </div>
+    <div class="form-group">
+      <label for="phone">
+        Phone
+      </label>
+      <input type="number" name="phone" class="form-control" placeholder="4158638350">
+    </div>
+    <div class="form-group">
+      <label for="yearFounded">
+        Year founded
+      </label>
+      <input type="number" max='2017' name="yearFounded" class="form-control" placeholder="1896">
+    </div>
+    <button class="btn btn-success login-signup-button" type="submit">
+      Signup
+    </button>
+  </form>
+</div>
