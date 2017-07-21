@@ -21,6 +21,10 @@
     <p>
       <%= user.phone %>
     </p>
+    <p>
+      <%= like[0].beer_id %>
+
+    </p>
   </div>
   <div class="col-md-2">
     <% if (user.role == "BREWERY" && user.id === userS.id) {%>
@@ -29,6 +33,7 @@
   </div>
 </div>
 
+<% if(user.role== "BREWERY") {%>
 <div class="beerProfileContainer">
 <% beer.forEach(beer => {%>
   <div class="col col-sm-3">
@@ -41,3 +46,4 @@
   </div>
 <% }) %>
 </div>
+<% }%>
