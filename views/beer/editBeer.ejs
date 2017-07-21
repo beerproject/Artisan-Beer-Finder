@@ -1,85 +1,90 @@
-<form action="/beer/<%= beer._id %>/edit" method="POST" enctype="multipart/form-data">
-  <div>
-    <label for="name">Name</label>
-    <input type="text" name="name" value="<%= beer.name %>">
-  </div>
-  <div>
-    <label for="style">Style</label>
-    <select name="style">
-      <option value="Altbier">Altbier</option>
-      <option value="Amber Ale">Amber Ale</option>
-      <option value="Barley Wine">Barley Wine</option>
-      <option value="Berliner Weiße">Berliner Weiße</option>
-      <option value="Bière de Garde">Bière de Garde</option>
-      <option value="Bitter">Bitter</option>
-      <option value="Blonde Ale">Blonde Ale</option>
-      <option value="Bock">Bock</option>
-      <option value="Brown Ale">Brown Ale</option>
-      <option value="Cream Ale">Cream Ale</option>
-      <option value="Dortmunder Export">Dortmunder Export</option>
-      <option value="Doppelbock">Doppelbock</option>
-      <option value="Dunkel">Dunkel</option>
-      <option value="Dunkelweizen">Dunkelweizen</option>
-      <option value="Eisbock">Eisbock</option>
-      <option value="Flanders Red Ale">Flanders Red Ale</option>
-      <option value="Geuze">Geuze</option>
-      <option value="Golden Ale">Golden Ale</option>
-      <option value="Gose">Gose</option>
-      <option value="Hefeweizen">Hefeweizen</option>
-      <option value="Helles">Helles</option>
-      <option value="India Pale Ale">India Pale Ale</option>
-      <option value="Kölsch">Kölsch</option>
-      <option value="Lambic">Lambic</option>
-      <option value="Light Ale">Light Ale</option>
-      <option value="Maibock">Maibock</option>
-      <option value="Malt Liquor">Malt Liquor</option>
-      <option value="Märzenbier">Märzenbier</option>
-      <option value="Mild Ale">Mild Ale</option>
-      <option value="Old Ale">Old Ale</option>
-      <option value="Oud Bruin">Oud Bruin</option>
-      <option value="Pale Ale">Pale Ale</option>
-      <option value="Pilsner">Pilsner</option>
-      <option value="Porter">Porter</option>
-      <option value="Red Ale">Red Ale</option>
-      <option value="Roggenbier">Roggenbier</option>
-      <option value="Saison">Saison</option>
-      <option value="Scotch Ale">Scotch Ale</option>
-      <option value="Steam Beer">Steam Beer</option>
-      <option value="Stout">Stout</option>
-      <option value="Schwarzbier">Schwarzbier</option>
-      <option value="Vienna Lager">Vienna Lager</option>
-      <option value="Witbier">Witbier</option>
-      <option value="Weißbier">Weißbier</option>
-      <option value="Weizenbock">Weizenbock</option>
-    </select>
-  </div>
-  <div>
-    <label for="standardReferenceMethod">SRM</label>
-    <input type="number" name="standardReferenceMethod" min="1" max="40" step="1" value="<%= beer.standardReferenceMethod %>">
-  </div>
-  <div>
-    <label for="alcoholByVolume">ABV</label>
-    <input type="number" name="alcoholByVolume" min="0" max="100BBBBB" step="0.1" value="<%= beer.alcoholByVolume %>">
-  </div>
-  <div>
-    <label for="internationalBitteringUnits">IBU</label>
-    <input type="number" name="internationalBitteringUnits" min="0" step="1" value="<%= beer.internationalBitteringUnits %>">
-  </div>
-  <div>
-    <label for="description">Description</label>
-    <input type="text" name="description" maxlength="180" value="<%= beer.description %>"></input>
-  </div>
-  <div class="form-group">
-    <label for="photo">Photo</label>
-    <input type="file" name="photo" class="form-control">
-  </div>
-  <div>
-    <input type="submit" value="Save">
-  </div>
+<div class="col-md-6 col-md-offset-3">
+  <h3 class="imp">
+    Edit beer
+  </h3>
+  <form action="/beer/<%= beer._id %>/edit" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" name="name" value="<%= beer.name %>" class="form-control">
+    </div>
+    <div class="form-group dropdown">
+      <label for="style">Style</label>
+      <select name="style" class="form-control">
+        <option value="Altbier">Altbier</option>
+        <option value="Amber Ale">Amber Ale</option>
+        <option value="Barley Wine">Barley Wine</option>
+        <option value="Berliner Weiße">Berliner Weiße</option>
+        <option value="Bière de Garde">Bière de Garde</option>
+        <option value="Bitter">Bitter</option>
+        <option value="Blonde Ale">Blonde Ale</option>
+        <option value="Bock">Bock</option>
+        <option value="Brown Ale">Brown Ale</option>
+        <option value="Cream Ale">Cream Ale</option>
+        <option value="Dortmunder Export">Dortmunder Export</option>
+        <option value="Doppelbock">Doppelbock</option>
+        <option value="Dunkel">Dunkel</option>
+        <option value="Dunkelweizen">Dunkelweizen</option>
+        <option value="Eisbock">Eisbock</option>
+        <option value="Flanders Red Ale">Flanders Red Ale</option>
+        <option value="Geuze">Geuze</option>
+        <option value="Golden Ale">Golden Ale</option>
+        <option value="Gose">Gose</option>
+        <option value="Hefeweizen">Hefeweizen</option>
+        <option value="Helles">Helles</option>
+        <option value="India Pale Ale">India Pale Ale</option>
+        <option value="Kölsch">Kölsch</option>
+        <option value="Lambic">Lambic</option>
+        <option value="Light Ale">Light Ale</option>
+        <option value="Maibock">Maibock</option>
+        <option value="Malt Liquor">Malt Liquor</option>
+        <option value="Märzenbier">Märzenbier</option>
+        <option value="Mild Ale">Mild Ale</option>
+        <option value="Old Ale">Old Ale</option>
+        <option value="Oud Bruin">Oud Bruin</option>
+        <option value="Pale Ale">Pale Ale</option>
+        <option value="Pilsner">Pilsner</option>
+        <option value="Porter">Porter</option>
+        <option value="Red Ale">Red Ale</option>
+        <option value="Roggenbier">Roggenbier</option>
+        <option value="Saison">Saison</option>
+        <option value="Scotch Ale">Scotch Ale</option>
+        <option value="Steam Beer">Steam Beer</option>
+        <option value="Stout">Stout</option>
+        <option value="Schwarzbier">Schwarzbier</option>
+        <option value="Vienna Lager">Vienna Lager</option>
+        <option value="Witbier">Witbier</option>
+        <option value="Weißbier">Weißbier</option>
+        <option value="Weizenbock">Weizenbock</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="standardReferenceMethod">SRM</label>
+      <input type="number" name="standardReferenceMethod" min="1" max="40" step="1" value="<%= beer.standardReferenceMethod %>" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="alcoholByVolume">ABV</label>
+      <input type="number" name="alcoholByVolume" min="0" max="100BBBBB" step="0.1" value="<%= beer.alcoholByVolume %>" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="internationalBitteringUnits">IBU</label>
+      <input type="number" name="internationalBitteringUnits" min="0" step="1" value="<%= beer.internationalBitteringUnits %>" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea type="text" name="description" maxlength="180" class="form-control" rows="6"><%= beer.description %></textarea>
+    </div>
+    <!-- <div class="form-group">
+      <label for="photo">
+        Beer photo
+      </label>
+      <input type="file" name="photo">
+    </div> -->
+    <div class="save-btn">
+      <input type="submit" value="Save" class="btn btn-success">
+    </div>
+    <a href="/beer/<%= beer._id %>/" class="btn btn-danger back-btn">Back</a>
+  </form>
   <% if (typeof message != "undefined") { %>
     <div class="error-message"><%= message %></div>
-  <% } %>
-</form>
-<form action="/beer/<%= beer._id %>/" method="GET">
-  <button type="submit">Back</button>
-</form>
+    <% } %>
+</div>

@@ -24,7 +24,7 @@ body {
   margin-bottom: 30px;
 }
 
-.login-error {
+.login-error, .like-error, .error-message {
   color: hsl(0, 100%, 50%);
 }
 
@@ -35,25 +35,38 @@ body {
 
 #profile-pic {
   object-fit: cover;
-  width: 220px;
-  height: 220px;
+  width: 90%;
+  height: 90%;
   margin-top: 20px;
   box-shadow: 0px 3px 9px #888888;
 }
 
-#wholeProfile {
+#beer-pic {
+  object-fit: cover;
+  width: 90%;
+  height: 90%;
+  margin: 20px;
+  box-shadow: 0px 3px 9px #888888;
+}
+
+#wholeProfile, #wholeBeer {
   margin-bottom: 32px;
 }
-#profileData {
+
+#profileData, #beerData {
   margin: 16px 0;
 }
 
 #profileData > p {
-  margin: 16px 32px;
+  margin: 8px 32px;
 }
 
-#addBeerButton {
+#addBeerButton, #beer-btn-container {
   margin: 16px 0;
+}
+
+.beer-btn-row {
+  display: inline;
 }
 
 .profileBeers {
@@ -68,4 +81,21 @@ body {
   box-shadow: 0px 1px 3px #888888;
   margin-bottom: 6px;
   width: 90%;
+}
+
+.acronyms {
+  margin-bottom: 12px;
+}
+
+.acronym {
+  display: inline;
+  margin-right: 12px;
+}
+
+.save-btn {
+  display: inline;
+}
+
+.back-btn {
+  float: right;
 }

@@ -95,7 +95,7 @@ router.post('/:id/edit',upload.single('photo'),ensureLoggedIn('/'), (req, res, n
     alcoholByVolume: req.body.alcoholByVolume,
     internationalBitteringUnits: req.body.internationalBitteringUnits,
     description: req.body.description,
-    pic_name: req.file.filename,
+    // pic_name: req.file.filename,
 
   };
 

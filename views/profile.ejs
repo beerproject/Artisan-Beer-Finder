@@ -23,7 +23,7 @@
     </p>
   </div>
   <div class="col-md-2">
-    <% if(user.role== "BREWERY") {%>
+    <% if (user.role == "BREWERY" && user.id === userS.id) {%>
     <a href="/beer/new" class="btn btn-success" id="addBeerButton">Add Beer</a>
     <% }%>
   </div>

@@ -1,28 +1,54 @@
-<h2 class="imp"><%= beer.name %></h2>
-<p><img src="/uploads/<%= beer.pic_name %>" width=200/></p>
-<h4><%= beer.style %></h4>
-<h1><%= beer.breweryName %></h1>
-<p>SRM: <%= beer.standardReferenceMethod %></p>
-<p>ABV: <%= beer.alcoholByVolume %></p>
-<p>IBU: <%= beer.internationalBitteringUnits %></p>
-<p><%= beer.description %></p>
-<br>
-<form action="/beer/<%= beer._id %>/edit" method="GET">
-  <button type="submit">Edit</button>
-</form>
-<form action="/beer/<%= beer._id %>/delete" method="POST">
-  <button type="submit">Delete</button>
-</form>
-<% user.role %>
-<% if (user.role== "USER") { %>
-<p><span class=total-likes><%= beer.likes %></span> likes</p>
-
-<button type="submit" name="like" id="like">Like</button>
-<% if (typeof message != "undefined") { %>
-  <div class="error-message"><%= message %></div>
-<% } %>
-<% } %>
-
+<div class="row" id="wholeBeer">
+  <div class="col-md-3">
+    <img src="/uploads/<%= beer.pic_name %>" alt="beer pic" id="beer-pic" class="img-resposive img-rounded">
+  </div>
+  <div class="col-md-7" id="beerData">
+    <h2 class="imp">
+      <%= beer.name %>
+    </h2>
+    <h4>
+      <%= beer.style %></a>
+    </h4>
+    <div class="acronyms">
+      <div class="acronym">
+        SRM: <%= beer.standardReferenceMethod %>
+      </div>
+      <div class="acronym">
+        ABV: <%= beer.alcoholByVolume %>
+      </div>
+      <div class="acronym">
+        IBU: <%= beer.internationalBitteringUnits %>
+      </div>
+    </div>
+    <p>
+      <a class="imp" href="/profile/<%= beer.breweryId %>"><%= beer.breweryName %></a>
+    </p>
+    <p>
+      <%= beer.description %>
+    </p>
+  </div>
+  <div class="col-md2" id='beer-btn-container'>
+    <% if (beer.likes !== 1) { %>
+    <p><span class=total-likes><%= beer.likes %></span> likes</p>
+    <% } else { %>
+    <p><span class=total-likes><%= beer.likes %></span> like</p>
+    <% } %>
+    <% if(user.role== "BREWERY" && beer.breweryId === user.id) {%>
+    <form class="beer-btn-row" action="/beer/<%= beer._id %>/edit" method="GET">
+      <button type="submit" class="btn btn-success">Edit</button>
+    </form>
+    <form class="beer-btn-row" action="/beer/<%= beer._id %>/delete" method="POST">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+    <% }%>
+    <% if (user.role== "USER") { %>
+    <button class="btn btn-success" type="submit" name="like" id="like">Like</button>
+    <% if (typeof message != "undefined") { %>
+      <div class="error-message like-error"><%= message %></div>
+    <% } %>
+    <% } %>
+  </div>
+</div>
 
 <script type="text/javascript">
   var beerInfo = <%- JSON.stringify({
@@ -31,16 +57,12 @@
     }) %>;
 </script>
 
-
-
-<h3>Location</h3>
 <div id="map"></div>
 <script type="text/javascript">
 var myBeer= <%- JSON.stringify(user)  %>;
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrtmNUIUV5jizOKyGvM3a6tlpRPvAac-Y&libraries=places"></script>
 
-
 <script type="text/javascript" src="/scripts/maps.js"></script>
 
-></script>
+</script>
